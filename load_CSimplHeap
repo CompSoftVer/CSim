@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ "$1" == "CSimpl" ]; then
+  isabelle jedit -d . -l CSimpl
+elif [ "$1" == "CSim" ]; then
+  isabelle jedit -d . -l CSim
+fi

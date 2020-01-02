@@ -1,0 +1,20 @@
+session CSim = CSimpl +
+  options [timeout=600]
+  sessions
+    CSimpl
+    EmbSimpl
+    "Sep_Algebra"
+  theories
+    Sim_Rules (* "Case-Study/ArincImp" "Case-Study/ArincSpec" *)
+  document_files
+    "mathpartir.sty"
+    "root.bib"
+    "root.tex"	
+
+session ArincRef = CSim +
+ options [timeout=600]
+  sessions
+    "HOL-Eisbach"
+  theories
+    "RefArinc/Refinement/ArincRefinement"
+    

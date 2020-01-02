@@ -1,0 +1,3 @@
+#!/bin/bash
+##isabelle build -d . -o quick_and_dirty -v -b CSimpl
+isabelle build -d . -o quick_and_dirty -v -b CSim
