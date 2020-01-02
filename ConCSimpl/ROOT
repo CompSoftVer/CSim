@@ -1,0 +1,15 @@
+session CSimpl = EmbSimpl +
+  options [timeout=600]  
+  sessions
+  "EmbSimpl"
+  "HOL-Library"
+  "HOL-Statespace"
+  "HOL-Eisbach"
+  (* "Sep_Algebra"
+  "Actions" *)
+  theories
+    LocalRG_HoareDef XVcgCon 
+  document_files
+    "mathpartir.sty"
+    "root.bib"
+    "root.tex"
