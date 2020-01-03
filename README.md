@@ -1,11 +1,10 @@
 # README #
-# David Sanan 2019 #
 
 
 ### What is this repository for? ###
 
 * Quick summary
-Models, tools, and proofs for the formal verification of: a partitioning/separation hypervisor abstract specification, XtratuM hypervisor for LEON3, SPARC V8 ISA semantic models.
+Models, tools, and proofs for CSim^2 a compositional verification framework.
 
 
 ### How do I get set up? ###
@@ -14,13 +13,20 @@ Models, tools, and proofs for the formal verification of: a partitioning/separat
 ROOTS file in the main contains the target session to be built in Isabelle/HOL:
 
 Possible targets up to now:
-CSimpl: a rely-guarantee verification framework for CSimpl, a rich expressive concurrent language in Isabelle/HOL. 
-CSim: a rely-guarantee simulation framework for Rely-Guarantee property preservation between Isabelle/HOL specifications.
-Arinc653-Multicore: MultiCore specification of ARINC-653
-SPARCv8: SparcV8 Model and proof of information flow.
-SPARCWM: A weak memory model for the SparcV8. It currently does not provide an execution semantics for code from the memory, but I am working on it.
+CSimpl: a Rely-Guarantee verification framework for CSimpl, a rich expressive concurrent language in Isabelle/HOL. The proof system and its soundness is proven in the file LocalRG_HoaredDef.thy. The CSimpl language is defined in LanguageCon.thy and its small step semantics in file SmallStepCon.thy. VcgCon.thy and XVcgCon.thy provides the concrete syntax. 
 
-Coming: VCG for CSimpl, and SparcV8
+CSim: a Rely-Guarantee simulation framework for Rely-Guarantee property preservation between Isabelle/HOL specifications. 
+  CRef.thy defines the Rely-Guarantee preservation framework and the definition of the rely-guarantee simulation. 
+  CSim.thy provides the rely-guarantee based simulation reasoning system. 
+
+ARincRef: A case study for the preservation using CSim^2 of a complex invariant between a specification and lower abstraction model. 
+          ARincRef/ArincMulticoreState.thy contains state definitions and related lemmas
+          Communication/Spec/ArincQueuing.thy defines the rely guarantee relations and invariant
+          Communication/Spec/ArincSpec_com_queue_insert.thy models the insert service and proves correctness of the invariant on the service model
+          Communication/Spec/ArincSpecQueue.thy models the Gamma function and proves the invariant on the parallel system.
+          Communication/Impl/ArincImp.thy defines the lower abstraction level and proves stability related lemmas
+          Refinement/ArincRefinement.thy defines the simulation relation between the two specification levels and proofs the Invariant over the lower abstraction level.
+
 
 To build a target, from the root directory call:
 
@@ -32,14 +38,4 @@ isabelle jedit -d . -l TARGET
 
 This can be useful for the inspection of the models.
 
-* Dependencies
 
-Many of the libraries depends on tools and libraries developed by Data61 that are included in the lib and tools directories. By buidling the Lib model
-
-isabelle build -d . -b Lib
-
-and loading it 
-
-isabelle jedit -d . -l Lib
-
-It will be possible to load any theory included in this project just dragging and drop it in the Isabelle/HOL GUI.
