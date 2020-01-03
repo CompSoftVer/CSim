@@ -1,5 +1,5 @@
 theory ArincQueuing
- imports "../../ArincMultiCoreState" Sep_Algebra.Separation_Algebra
+ imports "../../ArincMultiCoreState" 
 begin
 subsection {* channel messages *}
 text {*
@@ -10,6 +10,13 @@ is always equal to the initial value of the queue plus the auxiliary variables
 of the processes sending a message to the channel, minus the auxiliary variables
 of the processes removing/clearing messages from the channel. *}
 
+lemma (in semigroup) foldl_assoc:
+   "foldl f (f x y) zs = f x (foldl f y zs)"
+   by (induct zs arbitrary: y) (simp_all add:assoc)
+
+lemma (in monoid) foldl_absorb1:
+  "f x (foldl f z zs) = foldl f x zs"
+  by (induct zs) (simp_all add:foldl_assoc)
 
 definition channel_messages :: "channel_id  \<Rightarrow> ('a \<Rightarrow> (channel_id \<Rightarrow> Message multiset)) \<Rightarrow> 
                                   'a list \<Rightarrow> Message multiset"

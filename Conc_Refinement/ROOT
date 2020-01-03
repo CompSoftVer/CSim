@@ -3,7 +3,6 @@ session CSim = CSimpl +
   sessions
     CSimpl
     EmbSimpl
-    "Sep_Algebra"
   theories
     Sim_Rules (* "Case-Study/ArincImp" "Case-Study/ArincSpec" *)
   document_files
@@ -14,7 +13,7 @@ session CSim = CSimpl +
 session ArincRef = CSim +
  options [timeout=600]
   sessions
-    "HOL-Eisbach"
+    "HOL-Eisbach" "HOL-Library"
   theories
     "RefArinc/Refinement/ArincRefinement"
     
