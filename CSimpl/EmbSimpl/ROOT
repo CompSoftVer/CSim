@@ -1,0 +1,14 @@
+chapter AFP
+
+session EmbSimpl (AFP) = HOL +
+  options [timeout = 600]
+  sessions
+    "HOL-Library"
+    "HOL-Statespace"
+	"HOL-Eisbach"
+  theories
+    SmallStep Semantic VcgSeq Termination Language HoarePartialProps HeapList HoareTotalProps HeapList
+  document_files
+    "mathpartir.sty"
+    "root.bib"
+    "root.tex"
