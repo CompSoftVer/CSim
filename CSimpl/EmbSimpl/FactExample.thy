@@ -23,8 +23,8 @@ USA
 
 (*<*)
 theory FactExample 
-imports HeapList VcgSeq
-  "HOL-Statespace.StateSpaceSyntax" "HOL-Library.LaTeXsugar"
+imports VcgSeq
+  
 begin 
 (*>*)
 

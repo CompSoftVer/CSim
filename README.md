@@ -27,6 +27,7 @@ ARincRef: A case study for the preservation using CSim^2 of a complex invariant 
           Communication/Impl/ArincImp.thy defines the lower abstraction level and proves stability related lemmas
           Refinement/ArincRefinement.thy defines the simulation relation between the two specification levels and proofs the Invariant over the lower abstraction level.
 
+Example: An example on Simpl for the verification of a loop based implementation for factorial.
 
 To build a target, from the root directory call:
 
